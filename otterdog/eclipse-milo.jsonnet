@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-milo') {
+orgs.newOrg('iot.milo', 'eclipse-milo') {
   settings+: {
     description: "",
     name: "Eclipse Milo Project",
