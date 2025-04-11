@@ -9,6 +9,23 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('ORG_GPG_KEY_ID') {
+      value: 'pass:bots/iot.milo/gpg/key_id',
+    },
+    orgs.newOrgSecret('ORG_GPG_PASSPHRASE') {
+      value: 'pass:bots/iot.milo/gpg/passphrase',
+    },
+    orgs.newOrgSecret('ORG_GPG_PRIVATE_KEY') {
+      value: 'pass:bots/iot.milo/gpg/secret-subkeys.asc',
+    },
+    orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
+      value: 'pass:bots/iot.milo/oss.sonatype.org/password',
+    },
+    orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
+      value: 'pass:bots/iot.milo/oss.sonatype.org/username',
+    },
+  ],
   webhooks+: [
     orgs.newOrgWebhook('https://ci.eclipse.org/milo/github-webhook/') {
       content_type: "json",
@@ -19,6 +36,8 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
     },
   ],
   _repositories+:: [
+    orgs.newRepo('.github') {
+    },
     orgs.newRepo('milo') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -48,9 +67,6 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
         "stack"
       ],
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
       webhooks: [
         orgs.newRepoWebhook('https://ci.eclipse.org/milo/github-webhook/') {
           events+: [
@@ -84,10 +100,5 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
         },
       ],
     },
-  ],
-} + {
-  # snippet added due to 'https://github.com/EclipseFdn/otterdog-configs/blob/main/blueprints/add-dot-github-repo.yml'
-  _repositories+:: [
-    orgs.newRepo('.github')
   ],
 }
