@@ -20,10 +20,10 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
       value: 'pass:bots/iot.milo/gpg/secret-subkeys.asc',
     },
     orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
-      value: 'pass:bots/iot.milo/oss.sonatype.org/password',
+      value: 'pass:bots/iot.milo/oss.sonatype.org/gh-token-password',
     },
     orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
-      value: 'pass:bots/iot.milo/oss.sonatype.org/username',
+      value: 'pass:bots/iot.milo/oss.sonatype.org/gh-token-username',
     },
   ],
   webhooks+: [
@@ -45,7 +45,7 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
         "java-kotlin"
       ],
       code_scanning_default_setup_enabled: true,
-      default_branch: "1.0",
+      default_branch: "master",
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: " Eclipse Milo™ - an open source implementation of OPC UA (IEC 62541).",
