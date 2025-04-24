@@ -45,7 +45,7 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
         "java-kotlin"
       ],
       code_scanning_default_setup_enabled: true,
-      default_branch: "master",
+      default_branch: "1.0",
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: " Eclipse Milo™ - an open source implementation of OPC UA (IEC 62541).",
