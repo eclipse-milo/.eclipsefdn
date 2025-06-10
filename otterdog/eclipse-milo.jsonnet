@@ -19,11 +19,11 @@ orgs.newOrg('iot.milo', 'eclipse-milo') {
     orgs.newOrgSecret('ORG_GPG_PRIVATE_KEY') {
       value: 'pass:bots/iot.milo/gpg/secret-subkeys.asc',
     },
-    orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
-      value: 'pass:bots/iot.milo/oss.sonatype.org/gh-token-password',
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: 'pass:bots/iot.milo/central.sonatype.org/token-password',
     },
-    orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
-      value: 'pass:bots/iot.milo/oss.sonatype.org/gh-token-username',
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: 'pass:bots/iot.milo/central.sonatype.org/token-username',
     },
   ],
   webhooks+: [
